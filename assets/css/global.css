@@ -4,6 +4,10 @@
   --font-main: "Montserrat", sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -670,10 +674,7 @@ body {
 }
 
 .whatsapp {
-    width: 40px;
-    height: 40px;
-    bottom: 15px;
-    right: 10px;
+    display: none;
 }
 
     .comparison-container {
@@ -721,17 +722,31 @@ body {
         display: none;
     }
 
+    .logo {
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-size: .9rem;
+}   
+
+    .hero-content,.header {
+        padding-left: 45px;
+    }
+    
+
     .title-main{
         font-size: 2.5rem;
+        font-weight: 400;
+        letter-spacing: 10px;
     }
 
     .subtitle-main {
     font-size: .7rem;
+    margin: 10px 0;
 }
 
     .comparison-container {
         width: 90vw;
-        height: 23vh;
+        height: 20vh;
     }
 
     .img-before-bg{
@@ -759,4 +774,56 @@ body {
     align-items: center;
 }
  
+}
+
+
+/* Só aparece no celular */
+@media (min-width: 768px) {
+    .mobile-bottom-nav { display: none; }
+}
+
+@media (max-width: 767px) {
+    .desktop-menu { display: none; }
+
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 5px; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        background: rgba(20, 20, 20, 0.8); 
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: rgba(255,255,255,0.5);
+        font-size: 0.65rem;
+        gap: 4px;
+        transition: 0.3s;
+    }
+
+    .nav-item i {
+        font-size: 1.4rem;
+        margin-bottom: 2px;
+    }
+
+    .nav-item.active, .nav-item:hover {
+        color: #fff;
+    }
+
+    .nav-item.highlight {
+        color: #25D366; 
+    }
 }

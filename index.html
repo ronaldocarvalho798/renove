@@ -12,6 +12,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Menu Mobile -->
+     <nav class="mobile-bottom-nav">
+    <a href="#home" class="nav-item active">
+        <i class="ph ph-house"></i>
+        <span>Início</span>
+    </a>
+    <a href="#galeria" class="nav-item">
+        <i class="ph ph-armchair"></i>
+        <span>Projetos</span>
+    </a>
+    <a href="#process" class="nav-item">
+        <i class="ph ph-steps"></i>
+        <span>Processo</span>
+    </a>
+    <a href="https://wa.me/..." target="_blank" class="nav-item highlight">
+        <i class="ph ph-whatsapp-logo"></i>
+        <span>Orçar</span>
+    </a>
+</nav>
+
     <!-- Seção Home -->
     <div id="home" class="bg-home">
         <header class="header">
@@ -224,6 +244,20 @@
 </footer>
 
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileNavItems = document.querySelectorAll('.mobile-bottom-nav .nav-item');
+
+    mobileNavItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (this.classList.contains('highlight')) {
+                return; 
+            }
+            mobileNavItems.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+
     const slider = document.getElementById('slider-input');
     const beforeContainer = document.getElementById('before-container');
 
