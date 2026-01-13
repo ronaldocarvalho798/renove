@@ -294,6 +294,31 @@ slider.addEventListener('input', (e) => {
         faqItem.classList.toggle('active');
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... seus outros códigos de menu e slider ...
+
+    // --- LÓGICA DE GATILHO VISUAL (IntersectionObserver) ---
+    const sectionToWatch = document.querySelector('.before-after-section');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Se a seção apareceu na tela (isIntersecting)
+            if (entry.isIntersecting) {
+                // Adiciona a classe que dispara a animação CSS
+                sectionToWatch.classList.add('visible');
+                
+                // (Opcional) Para de observar depois que já animou uma vez (performance)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.4 // Dispara quando 40% da seção estiver visível (evita disparar se passar rápido só a borda)
+    });
+
+    // Começa a vigiar
+    observer.observe(sectionToWatch);
+});
 </script>
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </body>
