@@ -802,9 +802,6 @@ body {
 }
  
 }
-
-
-/* Só aparece no celular */
 @media (min-width: 768px) {
     .mobile-bottom-nav { display: none; }
 }
