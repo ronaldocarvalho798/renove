@@ -54,6 +54,7 @@ body {
   font-weight: 400;
   letter-spacing: 7px;
   font-size: 1.1rem;
+  color: #c7c7c7;
 }
 
 .nav-container {
@@ -314,8 +315,9 @@ body {
 
 .project-card {
     overflow: hidden;
-    height: 450px;
+    height: 350px;
     cursor: pointer;
+    border-radius: 2px;
 }
 
 .project-card img {
@@ -700,6 +702,31 @@ body {
     text-align: center;
     font-size: 12px;
 }
+
+.icon-wrapper{
+    width: 70px;
+    height: 70px;
+}
+
+.icon-wrapper i{
+    font-size: 1.5rem;
+}
+
+.step-number {
+    position: absolute;
+    top: 0;
+    right: -2px;
+    background: #fff;
+    color: #000;
+    font-size: 0.6rem;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+}
 }
 
 @media (max-width: 480px) {
@@ -761,7 +788,7 @@ body {
     margin: 20px 0;
 }
   .project-card {
-    height: 200px;
+    height: 180px;
 }
 
 .section-number {
