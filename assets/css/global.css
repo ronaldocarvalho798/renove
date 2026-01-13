@@ -184,7 +184,7 @@ body {
     width: 80vw;
     height: 60vh;
     overflow: hidden;
-    cursor: ew-resize;
+    cursor: ew-resize;  
 }
 
 
@@ -194,8 +194,9 @@ body {
   left: 0;
   width: 100%; 
   height: 100%;
-  background-size: 1310px;
-  background-position: 0 -320px;
+  background-size: cover;
+  background-position: 50% calc(50% - 17px);
+  background-repeat: no-repeat;
   z-index: 1;
 }
 
@@ -215,10 +216,10 @@ body {
 
 .img-before-bg {
   width: 80vw; 
-  height: 60vh;
+  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 -80px;
+  background-position: 50%;
 }
 
 .whatsapp {
@@ -598,4 +599,164 @@ body {
 .developer-credit a:hover {
     color: #ffffff;
     letter-spacing: 3px; 
+}
+
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .nav-container{
+        display: none;
+    }
+
+    .header{
+        padding: 20px 0;
+    }
+    .header,.hero-content {
+    padding-left: 60px;
+}
+
+    .title-main{
+        font-size: 9rem;
+    }
+
+    .subtitle-main {
+    font-size: 1.4rem;
+}
+
+    .img-before-bg{
+        background-position: 50% calc(50% - 8px)
+    }
+
+    .comparison-container{
+        height: 50vh;
+    }
+
+  .portfolio-grid-section, .process-section {
+    background-color: #000;
+    padding: 50px 70px;
+    text-align: center;
+}
+ .projects-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+}
+
+
+}
+
+
+@media (max-width: 768px) {
+    .bg-home{
+        height: 80vh;
+    }
+
+    .title-main{
+        font-size: 4rem;
+    }
+
+    .subtitle-main {
+    font-size: 1rem;
+    letter-spacing: 6px;
+}
+    .btn-cta {
+    font-size: 0.585rem;
+
+}
+
+.section-title {    
+    font-size: .825rem;
+}
+
+.whatsapp {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 10px;
+}
+
+    .comparison-container {
+        height: 30vh;
+    }
+
+    .before-after-section{
+        padding: 50px 0;
+    }
+
+    .portfolio-grid-section, .process-section,.about-section,.faq-section,.footer   {
+    padding: 30px 40px;
+}
+
+  .project-card {
+    height: 350px;
+}
+.process-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.faq-question{
+    text-align: center;
+    font-size: 12px;
+}
+}
+
+@media (max-width: 480px) {
+    .grid-title {
+    font-size: 1rem;
+    letter-spacing: 8px;
+    font-weight: 300;
+    margin-bottom: 60px;
+}
+
+    .portfolio-grid-section, .process-section, .about-section, .faq-section, .footer {
+        padding: 15px 20px;
+    }
+
+    .about-section {
+    display: block;
+}
+
+    .about-image{
+        display: none;
+    }
+
+    .title-main{
+        font-size: 2.5rem;
+    }
+
+    .subtitle-main {
+    font-size: .7rem;
+}
+
+    .comparison-container {
+        width: 90vw;
+        height: 23vh;
+    }
+
+    .img-before-bg{
+        width: 90vw;
+        background-position: 50% calc(50% - 12px);
+    }
+
+    .title-section {
+    font-size: 1.7rem;
+    font-weight: 300;
+    letter-spacing: 10px;
+    margin: 20px 0;
+}
+  .project-card {
+    height: 200px;
+}
+
+.section-number {
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
 }
