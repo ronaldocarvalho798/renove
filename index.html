@@ -281,11 +281,10 @@ const sliderHandle = document.getElementById('slider-handle');
 
 slider.addEventListener('input', (e) => {
     const value = e.target.value;
-    
     sliderHandle.style.animation = 'none';
+    beforeContainer.style.animation = 'none'; 
 
     beforeContainer.style.width = `${value}%`;
-    
     sliderHandle.style.left = `${value}%`;
 });
 
@@ -310,20 +309,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // Se a seção apareceu na tela (isIntersecting)
             if (entry.isIntersecting) {
-                // Adiciona a classe que dispara a animação CSS
                 sectionToWatch.classList.add('visible');
-                
-                // (Opcional) Para de observar depois que já animou uma vez (performance)
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.4 // Dispara quando 40% da seção estiver visível (evita disparar se passar rápido só a borda)
+        threshold: 0.4 
     });
 
-    // Começa a vigiar
     observer.observe(sectionToWatch);
 });
 </script>
