@@ -196,6 +196,68 @@
     </div>
 </section>
 
+<section id="reviews" class="reviews-section">
+    <div class="reviews-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">O QUE DIZEM NOSSOS <span>CLIENTES</span></h2>
+        <p class="description-section">Histórias reais de transformação.</p>
+    </div>
+
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+            
+            <article class="review-card">
+                <div class="card-top">
+                    <div class="stars">★★★★★</div>
+                    <i class="ph ph-quotes"></i>
+                </div>
+                <p class="review-text">"O sofá de 30 anos da família parecia perdido. A RENOVE não só restaurou, mas melhorou a estrutura. Ficou incrível!"</p>
+                <div class="review-author">
+                    <strong>Ricardo Mendes</strong>
+                    <span>Barra da Tijuca, RJ • Sofá Chesterfield</span>
+                </div>
+            </article>
+
+            <article class="review-card">
+                <div class="card-top">
+                    <div class="stars">★★★★★</div>
+                    <i class="ph ph-quotes"></i>
+                </div>
+                <p class="review-text">"Profissionalismo raro. O linho italiano que sugeriram mudou a cara da minha sala. Acabamento de alfaiataria."</p>
+                <div class="review-author">
+                    <strong>Fernanda Costa</strong>
+                    <span>Ipanema, RJ • Poltrona Berger</span>
+                </div>
+            </article>
+
+            <article class="review-card">
+                <div class="card-top">
+                    <div class="stars">★★★★★</div>
+                    <i class="ph ph-quotes"></i>
+                </div>
+                <p class="review-text">"Cumpriram o prazo à risca e o móvel voltou embalado como novo. Recomendo de olhos fechados."</p>
+                <div class="review-author">
+                    <strong>Carlos Eduardo</strong>
+                    <span>Niterói, RJ • Cadeiras de Jantar</span>
+                </div>
+            </article>
+
+            <article class="review-card">
+                <div class="card-top">
+                    <div class="stars">★★★★★</div>
+                    <i class="ph ph-quotes"></i>
+                </div>
+                <p class="review-text">"Achei que teria que comprar um novo, mas a restauração valeu cada centavo. O conforto voltou a ser 100%."</p>
+                <div class="review-author">
+                    <strong>Mariana S.</strong>
+                    <span>Leblon, RJ • Sofá Retrátil</span>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
 <!-- Seção FAQ -->
 <section id="faq" class="faq-section">
     <div class="faq-header">
@@ -273,38 +335,32 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('active');
         });
     });
-});
+    const slider = document.getElementById('slider-input');
+    const beforeContainer = document.getElementById('before-container');
+    const sliderHandle = document.getElementById('slider-handle');
 
-const slider = document.getElementById('slider-input');
-const beforeContainer = document.getElementById('before-container');
-const sliderHandle = document.getElementById('slider-handle');
+    slider.addEventListener('input', (e) => {
+        const value = e.target.value;
+        sliderHandle.style.animation = 'none';
+        beforeContainer.style.animation = 'none'; 
 
-slider.addEventListener('input', (e) => {
-    const value = e.target.value;
-    sliderHandle.style.animation = 'none';
-    beforeContainer.style.animation = 'none'; 
-
-    beforeContainer.style.width = `${value}%`;
-    sliderHandle.style.left = `${value}%`;
-});
-
-    document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        
-        
-        document.querySelectorAll('.faq-item').forEach(item => {
-            if (item !== faqItem) item.classList.remove('active');
-        });
-
-        faqItem.classList.toggle('active');
+        beforeContainer.style.width = `${value}%`;
+        sliderHandle.style.left = `${value}%`;
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    // ... seus outros códigos de menu e slider ...
+        document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) item.classList.remove('active');
+            });
 
-    // --- LÓGICA DE GATILHO VISUAL (IntersectionObserver) ---
+            faqItem.classList.toggle('active');
+        });
+    });
+
     const sectionToWatch = document.querySelector('.before-after-section');
 
     const observer = new IntersectionObserver((entries) => {
@@ -319,7 +375,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     observer.observe(sectionToWatch);
+
+    const track = document.querySelector('.marquee-track');
+    
+    // Pega os cards originais
+    const cards = Array.from(track.children);
+    
+    // Clona cada card e adiciona no final
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+    });
 });
+
 </script>
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </body>

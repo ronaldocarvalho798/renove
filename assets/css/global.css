@@ -533,6 +533,90 @@ body {
     transition: 0.5s;
 }
 
+
+/* Container da Seção */
+.reviews-section {
+    background-color: #000;
+    padding: 80px 0;
+    overflow: hidden; 
+}
+
+/* 1. A JANELA (Wrapper) */
+.marquee-wrapper {
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden; /* Corta o que sai da tela */
+    position: relative;
+    
+    /* Efeito Premium: Fade nas pontas */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* 2. O TRILHO (Track) */
+.marquee-track {
+    display: flex;
+    width: max-content; /* Largura se adapta ao conteúdo */
+    
+    /* A Animação Contínua */
+    /* 50s = Velocidade (aumente para ficar mais lento) */
+    animation: scroll-infinite 10s linear infinite;
+}
+
+/* 3. O FREIO ABS (Instantâneo) */
+/* Quando passar o mouse no PAI, pausa o FILHO */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+    cursor: grab; /* Mãozinha para indicar interatividade */
+}
+
+/* A Lógica Matemática do Infinito */
+@keyframes scroll-infinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Move exatamente metade do caminho (onde começam os clones) */
+        transform: translateX(-50%);
+    }
+}
+
+/* 4. OS CARDS (Visual) */
+.review-card {
+    width: 380px; /* Largura fixa */
+    flex-shrink: 0; /* IMPEDE o card de ser esmagado */
+    margin-right: 30px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 30px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.review-card:hover {
+    border-color: rgba(255,255,255,0.3);
+    background: #0f0f0f;
+}
+
+/* Elementos Internos */
+.card-top { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.stars { color: #d4af37; font-size: 0.8rem; letter-spacing: 2px; }
+.ph-quotes { font-size: 1.5rem; color: #333; }
+.review-text { color: #ccc; font-family: "Montserrat"; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; font-style: italic; }
+.review-author strong { display: block; color: #fff; font-size: 0.9rem; }
+.review-author span { color: #666; font-size: 0.75rem; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .review-card { width: 270px; padding: 20px; }
+    .marquee-track { animation-duration: 15s; } 
+}
+
 /* FAQ */
 .faq-section {
     background-color: #000;
@@ -876,6 +960,11 @@ body {
     .img-before-bg {
         width: 90vw; 
         height: 100%; 
+    }
+
+    .review-card {
+        width: 210px;
+        padding: 20px;
     }
  
 }
