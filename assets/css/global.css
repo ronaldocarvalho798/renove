@@ -51,10 +51,15 @@ body {
 }
 
 .logo {
-  font-weight: 400;
-  letter-spacing: 7px;
-  font-size: 1.1rem;
-  color: #c7c7c7;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0px 0px 5px rgba(212, 175, 55, 0.2));
 }
 
 .nav-container {
@@ -107,6 +112,8 @@ body {
   font-style: normal;
   margin: 0;
   letter-spacing: 20px;
+  position: relative;
+  left: -15px;
 }
 
 .subtitle-main {
@@ -383,6 +390,7 @@ body {
     height: 350px;
     cursor: pointer;
     border-radius: 2px;
+    position: relative;
 }
 
 .project-card img {
@@ -395,7 +403,6 @@ body {
 
 
 .project-card:hover img {
-    transform: scale(1.05);
     filter: brightness(1);
 }
 
@@ -1015,5 +1022,101 @@ body {
 
     .nav-item.highlight {
         color: #25D366; 
+    }
+}
+
+
+
+/* O CARD PRETO (Overlay) */
+.overlay-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%; 
+    height: 100%;
+    
+    background: rgba(15, 15, 15, 0.92);
+    backdrop-filter: blur(8px); 
+    border-right: 1px solid rgba(255,255,255,0.1); 
+    
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    z-index: 10;
+}
+
+.project-card:hover .overlay-card{
+    transform: translateX(0);
+}
+
+
+
+/* TIPOGRAFIA E ELEMENTOS */
+.service-badge {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #d4af37; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.title-overlay{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+
+.specs-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.specs-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ccc;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.specs-list li i {
+    color: #d4af37; 
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .card-overlay {
+        position: relative;
+        width: 100%;
+        height: auto;
+        transform: none !important; 
+        background: #111;
+        border-right: none;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding: 20px;
+    }
+    
+    .interactive-card {
+        aspect-ratio: auto; 
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .card-img {
+        height: 250px;
     }
 }
